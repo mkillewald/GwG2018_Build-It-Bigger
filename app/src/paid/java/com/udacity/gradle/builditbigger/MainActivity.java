@@ -1,6 +1,5 @@
 package com.udacity.gradle.builditbigger;
 
-import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
@@ -15,6 +14,7 @@ public class MainActivity extends AppCompatActivity {
 
     private static final String EXTRA_JOKE = "jokeExtra";
 
+    private String mJoke;
     private ProgressBar mLoadingIndicator;
 
     @Override
@@ -24,7 +24,6 @@ public class MainActivity extends AppCompatActivity {
 
         mLoadingIndicator = findViewById(R.id.pb_loading_indicator);
     }
-
 
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
@@ -49,20 +48,22 @@ public class MainActivity extends AppCompatActivity {
     }
 
     public void tellJoke(View view) {
-
-        final Context context = this;
         mLoadingIndicator.setVisibility(View.VISIBLE);
 
         new EndpointsAsyncTask(new EndpointsAsyncTask.AsyncResponse() {
             @Override
             public void returnJoke(String joke) {
-
-                Intent intent = new Intent(context, DisplayJokeActivity.class);
-                intent.putExtra(EXTRA_JOKE, joke);
-
-                startActivity(intent);
+                mJoke = joke;
+                displayJoke();
                 mLoadingIndicator.setVisibility(View.INVISIBLE);
             }
         }).execute(this);
+    }
+
+    private void displayJoke() {
+        Intent intent = new Intent(this, DisplayJokeActivity.class);
+        intent.putExtra(EXTRA_JOKE, mJoke);
+
+        startActivity(intent);
     }
 }

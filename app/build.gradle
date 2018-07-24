@@ -57,7 +57,7 @@ dependencies {
     implementation project(':joker_JavaLibrary')
     implementation project(':joker_AndroidLibrary')
 
-    freeImplementation 'com.google.android.gms:play-services-ads:11.8.0'
+    freeImplementation 'com.google.android.gms:play-services-ads:15.0.1'
 
     implementation 'com.android.support:appcompat-v7:27.1.1'
     implementation 'com.google.api-client:google-api-client:1.23.0'
