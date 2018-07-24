@@ -21,6 +21,6 @@ public class ExampleInstrumentedTest {
         // Context of the app under test.
         Context appContext = InstrumentationRegistry.getTargetContext();
 
-        assertEquals("com.udacity.gradle.jokeandroidlibrary.test", appContext.getPackageName());
+        assertEquals("com.udacity.gradle.jokerandroidlibrary.test", appContext.getPackageName());
     }
 }
