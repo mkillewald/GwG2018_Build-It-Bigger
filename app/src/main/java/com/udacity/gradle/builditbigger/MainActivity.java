@@ -7,8 +7,8 @@ import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 
-import com.udacity.gradle.jokeandroidlibrary.DisplayJokeActivity;
-import com.udacity.gradle.jokejavalibrary.Joker;
+import com.udacity.gradle.jokerandroidlibrary.DisplayJokeActivity;
+import com.udacity.gradle.jokerjavalibrary.Joker;
 
 
 public class MainActivity extends AppCompatActivity {
