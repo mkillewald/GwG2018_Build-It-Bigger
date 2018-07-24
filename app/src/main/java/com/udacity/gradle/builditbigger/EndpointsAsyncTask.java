@@ -8,6 +8,7 @@ import com.google.api.client.extensions.android.json.AndroidJsonFactory;
 import com.google.api.client.googleapis.services.AbstractGoogleClientRequest;
 import com.google.api.client.googleapis.services.GoogleClientRequestInitializer;
 import com.udacity.gradle.builditbigger.backend.myApi.MyApi;
+import com.udacity.gradle.builditbigger.idlingResource.EspressoTestingIdlingResource;
 
 import java.io.IOException;
 
@@ -30,6 +31,7 @@ class EndpointsAsyncTask extends AsyncTask<Context, Void, String> {
 
     @Override
     protected String doInBackground(Context... params) {
+        EspressoTestingIdlingResource.increment();
         if(myApiService == null) {  // Only do this once
             MyApi.Builder builder = new MyApi.Builder(AndroidHttp.newCompatibleTransport(),
                     new AndroidJsonFactory(), null)
@@ -62,5 +64,6 @@ class EndpointsAsyncTask extends AsyncTask<Context, Void, String> {
         if (mListener != null) {
             mListener.returnJoke(result);
         }
+        EspressoTestingIdlingResource.decrement();
     }
 }
