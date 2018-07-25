@@ -31,3 +31,10 @@ subprojects {
         }
     }
 }
+
+task runAndroidTestsWithAppEngine {
+    dependsOn ':backend:appengineStart'
+    dependsOn ':app:connectedAndroidTest'
+    mustRunAfter ':backend:appengineStart'
+    finalizedBy ':backend:appengineStop'
+}

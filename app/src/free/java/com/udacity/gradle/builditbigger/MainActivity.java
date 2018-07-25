@@ -70,12 +70,12 @@ public class MainActivity extends AppCompatActivity {
     }
 
     public void tellJoke(View view) {
+
         mLoadingIndicator.setVisibility(View.VISIBLE);
 
         new EndpointsAsyncTask(new EndpointsAsyncTask.AsyncResponse() {
             @Override
             public void returnJoke(String joke) {
-
                 mJoke = joke;
 
                 if (mInterstitialAd.isLoaded()) {

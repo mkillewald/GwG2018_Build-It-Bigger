@@ -45,8 +45,10 @@ android {
         }
     }
     sourceSets {
-        free { java.srcDirs = ['src/free/java', 'src/free/java/'] } 
+        free { java.srcDirs = ['src/free/java', 'src/free/java/'] }
         paid { java.srcDirs = ['src/paid/java', 'src/paid/java/'] }
+        androidTestFree { java.srcDirs = ['src/androidTestFree/java'] }
+        androidTestPaid { java.srcDirs = ['src/androidTestPaid/java'] }
     }
 }
 
@@ -72,4 +74,5 @@ dependencies {
     androidTestImplementation 'com.android.support.test:rules:1.0.2'
     androidTestImplementation 'com.android.support.test:runner:1.0.2'
     androidTestImplementation 'com.android.support.test.espresso:espresso-core:3.0.2'
+    androidTestImplementation 'com.android.support.test.espresso:espresso-intents:3.0.2'
 }
