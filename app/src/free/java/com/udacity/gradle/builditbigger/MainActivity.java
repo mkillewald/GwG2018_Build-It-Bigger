@@ -18,10 +18,6 @@ public class MainActivity extends AppCompatActivity {
 
     private static final String EXTRA_JOKE = "jokeExtra";
 
-    // replace with actual App ID and Ad Unit ID for production release
-    private static final String APP_ID = "ca-app-pub-3940256099942544~3347511713";
-    private static final String AD_UNIT_ID = "ca-app-pub-3940256099942544/1033173712";
-
     private String mJoke;
     private ProgressBar mLoadingIndicator;
     private InterstitialAd mInterstitialAd;
@@ -33,10 +29,10 @@ public class MainActivity extends AppCompatActivity {
 
         mLoadingIndicator = findViewById(R.id.pb_loading_indicator);
 
-        MobileAds.initialize(this, APP_ID);
+        MobileAds.initialize(this, getString(R.string.mobile_ad_app_id));
 
         mInterstitialAd = new InterstitialAd(this);
-        mInterstitialAd.setAdUnitId(AD_UNIT_ID);
+        mInterstitialAd.setAdUnitId(getString(R.string.interstitial_ad_unit_id));
         mInterstitialAd.loadAd(new AdRequest.Builder().build());
         mInterstitialAd.setAdListener(new AdListener() {
             @Override
@@ -84,7 +80,7 @@ public class MainActivity extends AppCompatActivity {
 
                 mLoadingIndicator.setVisibility(View.INVISIBLE);
             }
-        }).execute(this);
+        }).execute();
     }
 
     private void displayJoke() {

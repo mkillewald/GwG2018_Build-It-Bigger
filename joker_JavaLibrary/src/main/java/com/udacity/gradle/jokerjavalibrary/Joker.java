@@ -72,6 +72,10 @@ public class Joker {
                     "slowly. ‘Paint…my….house.’"
     };
 
+    public static String[] getFunnyJokes() {
+        return funnyJokes;
+    }
+
     public String getJoke() {
         Random random = new Random();
         return funnyJokes[random.nextInt(funnyJokes.length)];

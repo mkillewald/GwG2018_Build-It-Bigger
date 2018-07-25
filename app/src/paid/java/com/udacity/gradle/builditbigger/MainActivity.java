@@ -57,7 +57,7 @@ public class MainActivity extends AppCompatActivity {
                 displayJoke();
                 mLoadingIndicator.setVisibility(View.INVISIBLE);
             }
-        }).execute(this);
+        }).execute();
     }
 
     private void displayJoke() {

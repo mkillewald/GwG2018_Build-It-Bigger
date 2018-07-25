@@ -45,10 +45,11 @@ android {
         }
     }
     sourceSets {
-        free { java.srcDirs = ['src/free/java', 'src/free/java/'] }
-        paid { java.srcDirs = ['src/paid/java', 'src/paid/java/'] }
+        free { java.srcDirs = ['src/free/java'] }
+        paid { java.srcDirs = ['src/paid/java'] }
         androidTestFree { java.srcDirs = ['src/androidTestFree/java'] }
         androidTestPaid { java.srcDirs = ['src/androidTestPaid/java'] }
+        main { java.srcDirs = ['src/main/java'] }
     }
 }
 

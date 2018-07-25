@@ -8,6 +8,7 @@ import android.support.test.espresso.intent.rule.IntentsTestRule;
 import android.support.test.runner.AndroidJUnit4;
 
 import com.udacity.gradle.builditbigger.idlingResource.EspressoTestingIdlingResource;
+import com.udacity.gradle.jokerjavalibrary.Joker;
 
 import org.junit.After;
 import org.junit.Before;
@@ -25,6 +26,7 @@ import static android.support.test.espresso.intent.matcher.IntentMatchers.isInte
 import static android.support.test.espresso.matcher.ViewMatchers.withId;
 
 import static org.hamcrest.Matchers.equalTo;
+import static org.hamcrest.Matchers.isIn;
 import static org.hamcrest.Matchers.not;
 
 @RunWith(AndroidJUnit4.class)
@@ -53,8 +55,10 @@ public class MainActivityTest {
     public void clickButton_CreatesIntentWithJoke() {
         // Checks that an intent is created and contains an Extra with key EXTRA_JOKE and has
         // a value that is not an empty string.
+        String[] funnyJokes = Joker.getFunnyJokes();
+
         onView(withId(R.id.btn_tell_joke)).perform(click());
-        intended(hasExtras(hasEntry(equalTo(EXTRA_JOKE), not(""))));
+        intended(hasExtras(hasEntry(equalTo(EXTRA_JOKE), isIn(funnyJokes))));
     }
 
     @After
