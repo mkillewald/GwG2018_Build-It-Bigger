@@ -19,13 +19,10 @@ import java.util.Arrays;
 import java.util.concurrent.CountDownLatch;
 
 import static junit.framework.Assert.assertFalse;
-import static junit.framework.Assert.assertNotNull;
 import static junit.framework.Assert.assertTrue;
 
 @RunWith(AndroidJUnit4.class)
 public class EndpointsAsyncTaskTest {
-
-    private static final String ERROR_MSG = "Error: ";
 
     private IdlingResource mIdlingResource;
 
@@ -47,7 +44,6 @@ public class EndpointsAsyncTaskTest {
             public void returnJoke(String joke) {
                 String[] funnyJokes = Joker.getFunnyJokes();
 
-                assertNotNull(joke);
                 assertFalse(TextUtils.isEmpty(joke));
                 assertTrue(Arrays.asList(funnyJokes).contains(joke));
                 signal.countDown();// notify the count down latch
